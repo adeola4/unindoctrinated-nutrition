@@ -14,8 +14,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const baseStyles = 'inline-flex items-center justify-center font-medium rounded transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e73be] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
 const variants: Record<string, string> = {
-  primary: 'bg-[#1e73be] text-white hover:bg-[#155a96] active:bg-[#0d3d6b]',
-  secondary: 'bg-[#b5dfe1] text-[#222222] hover:bg-[#8cbdc0] active:bg-[#6a9ea2]',
+  primary: 'bg-[#3a4342] text-white hover:bg-[#095b52] active:bg-[#07181b]',
+  secondary: 'bg-[#508d8f] text-white hover:bg-[#3a6f71] active:bg-[#2a5254]',
   outline: 'border border-[#b2b2be] text-[#222222] hover:bg-[#f0f0f0]',
   ghost: 'text-[#222222] hover:bg-[#f0f0f0]',
 }

@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vibecodr.space'),
+  metadataBase: new URL('https://unindoctrinated-nutrition.vercel.app'),
   title: {
     default: 'Unindoctrinated Nutrition Science | Adeola James',
     template: '%s | Unindoctrinated Nutrition Science',
