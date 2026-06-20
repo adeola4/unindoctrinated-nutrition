@@ -11,14 +11,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
 }
 
-const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lifespa-forest focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#650e50] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
 const variants: Record<string, string> = {
-  primary: 'bg-lifespa-forest text-white hover:bg-lifespa-forest-light active:bg-lifespa-forest-dark shadow-sm',
-  secondary: 'bg-lifespa-sage text-lifespa-forest-dark hover:bg-lifespa-sage-light active:bg-lifespa-sage-dark',
-  outline: 'border-2 border-lifespa-forest text-lifespa-forest hover:bg-lifespa-forest hover:text-white active:bg-lifespa-forest-dark',
-  ghost: 'text-lifespa-forest hover:bg-lifespa-warm active:bg-lifespa-warm-dark',
-  terracotta: 'bg-lifespa-terracotta text-white hover:bg-lifespa-terracotta-light active:bg-lifespa-terracotta-dark shadow-sm',
+  primary: 'bg-[#650e50] text-white hover:bg-[#7A2864] active:bg-[#4A0A3A] shadow-sm',
+  secondary: 'bg-[#B8A9C4] text-[#4A0A3A] hover:bg-[#D4C8DC] active:bg-[#8A7A9A]',
+  outline: 'border-2 border-[#650e50] text-[#650e50] hover:bg-[#650e50] hover:text-white active:bg-[#4A0A3A]',
+  ghost: 'text-[#650e50] hover:bg-purple-50 active:bg-purple-100',
+  terracotta: 'bg-[#ffa52c] text-white hover:bg-[#FFBE5C] active:bg-[#db6110] shadow-sm',
 }
 
 const sizes: Record<string, string> = {

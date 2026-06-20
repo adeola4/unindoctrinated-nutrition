@@ -8,101 +8,89 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 
-const topicsData = {
+const topicsData: Record<string, { name: string; description: string; longDescription: string; image: string; articles: { title: string; slug: string; excerpt: string; tags: string[]; date: string; readingTime: number }[] }> = {
   'gut-health': {
     name: 'Gut Health',
-    icon: '🦠',
-    description: 'The gut is the foundation of health. Research covering microbiome, digestion, absorption, intestinal permeability, and the gut-brain axis.',
-    longDescription: 'From the oral microbiome to the colon, the gastrointestinal tract is a complex ecosystem that influences every aspect of health. Here you will find in-depth analysis of digestive physiology, microbial ecology, and evidence-based strategies for gut optimization.',
-    color: '#2D5A27',
-    articles: [] as { title: string; slug: string; excerpt: string; tags: string[]; date: string; readingTime: number }[],
+    description: 'Microbiome, digestion, absorption, gut-brain axis, and intestinal permeability.',
+    longDescription: 'From the oral microbiome to the colon, the gastrointestinal tract is a complex ecosystem that influences every aspect of health.',
+    image: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=1200&h=400&fit=crop',
+    articles: [],
   },
   'metabolic-health': {
     name: 'Metabolic Health',
-    icon: '⚡',
-    description: 'Blood sugar regulation, insulin sensitivity, metabolic syndrome, and the fundamental biochemistry of energy metabolism.',
-    longDescription: 'Metabolic health is the foundation of chronic disease prevention. This topic covers insulin signaling, glucose metabolism, metabolic syndrome, and evidence-based strategies for metabolic optimization.',
-    color: '#C18A6B',
+    description: 'Blood sugar regulation, insulin sensitivity, metabolic syndrome, and energy metabolism.',
+    longDescription: 'Metabolic health is the foundation of chronic disease prevention. This topic covers insulin signaling, glucose metabolism, and metabolic optimization.',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop',
     articles: [],
   },
   'nutrition-science': {
     name: 'Nutrition Science',
-    icon: '🥦',
-    description: 'Macronutrients, micronutrients, bioavailability, anti-nutrients, food quality, and the science of what we eat.',
-    longDescription: 'Nutrition science is the study of how food components interact with the body at a biochemical level. Here you will find deep dives into macronutrient metabolism, micronutrient functions, anti-nutrients, food quality markers, and the evidence behind dietary paradigms.',
-    color: '#8FBC8F',
+    description: 'Macronutrients, micronutrients, bioavailability, anti-nutrients, and food quality.',
+    longDescription: 'Nutrition science studies how food components interact with the body at a biochemical level.',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&h=400&fit=crop',
     articles: [],
   },
   'supplementation': {
     name: 'Supplementation',
-    icon: '💊',
-    description: 'Evidence-based analysis of supplements: forms, dosages, bioavailability, therapeutic applications, and safety.',
-    longDescription: 'The supplement industry is filled with marketing hype. This section cuts through it with rigorous analysis of supplement forms, dosages, bioavailability, mechanisms of action, and clinical evidence.',
-    color: '#E9C46A',
+    description: 'Evidence-based analysis of supplements: forms, dosages, bioavailability, and safety.',
+    longDescription: 'The supplement industry is filled with marketing hype. This section cuts through it with rigorous analysis.',
+    image: 'https://images.unsplash.com/photo-1550572017-edd951b55104?w=1200&h=400&fit=crop',
     articles: [],
   },
   'sleep-circadian': {
     name: 'Sleep & Circadian Biology',
-    icon: '🌙',
-    description: 'Sleep architecture, circadian rhythm science, light exposure, melatonin, and chronobiology.',
-    longDescription: 'Sleep and circadian rhythms are fundamental to health. This topic covers the science of sleep architecture, circadian biology, light exposure optimization, chrononutrition, and strategies for circadian alignment.',
-    color: '#4A6FA5',
+    description: 'Sleep architecture, circadian rhythm science, light exposure, and chronobiology.',
+    longDescription: 'Sleep and circadian rhythms are fundamental to health. This topic covers the science of sleep architecture and circadian biology.',
+    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&h=400&fit=crop',
     articles: [],
   },
   'hormones': {
     name: 'Hormones',
-    icon: '🧬',
-    description: 'Endocrine function, thyroid health, sex hormones, adrenal function, hormone optimization, and endocrine disruptors.',
-    longDescription: 'Hormones regulate virtually every physiological process. This section examines thyroid function, sex hormones, adrenal health, hormone optimization strategies, and the impact of endocrine-disrupting chemicals.',
-    color: '#C18A6B',
+    description: 'Endocrine function, thyroid health, sex hormones, adrenal function, and optimization.',
+    longDescription: 'Hormones regulate virtually every physiological process. This section examines thyroid function, sex hormones, and adrenal health.',
+    image: 'https://images.unsplash.com/photo-1579165466741-7f35e4755661?w=1200&h=400&fit=crop',
     articles: [],
   },
   'longevity': {
     name: 'Longevity & Aging',
-    icon: '⏳',
-    description: 'The biology of aging, healthspan extension, telomere biology, autophagy, senescence, and longevity pathways.',
-    longDescription: 'Aging biology is one of the most exciting areas of modern science. This topic covers the hallmarks of aging, longevity signaling pathways, interventions with evidence for healthspan extension, and the distinction between biological and chronological age.',
-    color: '#8FBC8F',
+    description: 'The biology of aging, healthspan extension, telomere biology, autophagy, and senescence.',
+    longDescription: 'Aging biology is one of the most exciting areas of modern science. This topic covers the hallmarks of aging and longevity pathways.',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop',
     articles: [],
   },
   'exercise-recovery': {
     name: 'Exercise & Recovery',
-    icon: '🏋️',
-    description: 'Training physiology, muscle protein synthesis, recovery optimization, movement patterns, and performance science.',
-    longDescription: 'Exercise is a powerful stimulus for health adaptation. This section covers training physiology, muscle protein synthesis, recovery science, movement patterns, and the evidence for different exercise modalities.',
-    color: '#2D5A27',
+    description: 'Training physiology, muscle protein synthesis, recovery optimization, and performance science.',
+    longDescription: 'Exercise is a powerful stimulus for health adaptation. This section covers training physiology and recovery science.',
+    image: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?w=1200&h=400&fit=crop',
     articles: [],
   },
   'brain-health': {
     name: 'Brain Health',
-    icon: '🧠',
-    description: 'Neurobiology, cognitive function, neurodegeneration prevention, nootropics, neuroplasticity, and brain energetics.',
-    longDescription: 'The brain is the most energy-demanding organ in the body. This topic explores neurobiology, cognitive function, neurodegeneration prevention, evidence-based nootropics, neuroplasticity, and strategies for lifelong brain health.',
-    color: '#4A6FA5',
+    description: 'Neurobiology, cognitive function, neurodegeneration prevention, and brain energetics.',
+    longDescription: 'The brain is the most energy-demanding organ. This topic explores neurobiology, cognitive function, and neurodegeneration prevention.',
+    image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=400&fit=crop',
     articles: [],
   },
   'mitochondrial-health': {
     name: 'Mitochondrial Health',
-    icon: '🔬',
-    description: 'Mitochondrial biology, cellular energetics, oxidative stress, mitophagy, and strategies for mitochondrial optimization.',
-    longDescription: 'Mitochondria are the powerhouses of our cells and central to health and disease. This section covers mitochondrial biology, cellular energetics, oxidative stress management, mitophagy, and evidence-based strategies for mitochondrial support.',
-    color: '#C18A6B',
+    description: 'Mitochondrial biology, cellular energetics, oxidative stress, and mitophagy.',
+    longDescription: 'Mitochondria are the powerhouses of our cells and central to health and disease.',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=400&fit=crop',
     articles: [],
   },
   'inflammation-immunity': {
     name: 'Inflammation & Immunity',
-    icon: '🛡️',
-    description: 'Immune function, inflammatory pathways, autoimmune conditions, immune modulation, and the inflammation-metabolism axis.',
-    longDescription: 'The immune system and inflammatory pathways intersect with every aspect of health. This topic examines immune function, inflammatory signaling, autoimmune conditions, immune modulation strategies, and the critical inflammation-metabolism connection.',
-    color: '#2D5A27',
+    description: 'Immune function, inflammatory pathways, autoimmune conditions, and immune modulation.',
+    longDescription: 'The immune system and inflammatory pathways intersect with every aspect of health.',
+    image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?w=1200&h=400&fit=crop',
     articles: [],
   },
   'detoxification': {
     name: 'Detoxification',
-    icon: '🌿',
-    description: 'Phase I and II detoxification pathways, liver health, lymphatic system, toxic burden assessment, and elimination support.',
-    longDescription: 'Detoxification is a complex physiological process often oversimplified by the wellness industry. This section covers Phase I and II detox pathways, liver health, lymphatic function, toxic burden assessment, and evidence-based strategies for supporting elimination.',
-    color: '#8FBC8F',
+    description: 'Phase I/II detox pathways, liver health, lymphatic system, and elimination support.',
+    longDescription: 'Detoxification is a complex physiological process often oversimplified by the wellness industry.',
+    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&h=400&fit=crop',
     articles: [],
   },
 }
@@ -128,25 +116,25 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
 
   return (
     <>
-      <Section variant="hero" padding="lg" className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ background: `repeating-linear-gradient(45deg, ${topic.color} 0px, ${topic.color} 2px, transparent 2px, transparent 8px)` }} />
-        <Container size="md">
-          <Link href="/docs/topics/" className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-6 transition-colors">
+      {/* Topic Hero */}
+      <div className="relative overflow-hidden bg-[#650e50]">
+        <div className="absolute inset-0 opacity-20">
+          <img src={topic.image} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <Link href="/docs/topics/" className="inline-flex items-center gap-2 text-purple-200 hover:text-orange-300 text-body-sm mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             All Health Topics
           </Link>
-          <div className="flex items-start gap-4">
-            <span className="text-5xl" aria-hidden="true">{topic.icon}</span>
-            <div>
-              <h1 className="font-heading text-display-md text-lifespa-forest mb-4">{topic.name}</h1>
-              <p className="text-lifespa-charcoal-light text-body-lg leading-relaxed">{topic.longDescription || topic.description}</p>
-              <div className="flex items-center gap-4 mt-4">
-                <Badge variant="topic" size="sm">{hasArticles ? `${topic.articles.length} articles` : 'Coming soon'}</Badge>
-              </div>
+          <div className="max-w-3xl">
+            <h1 className="font-heading text-display-md text-white mb-4">{topic.name}</h1>
+            <p className="text-purple-200 text-body-lg leading-relaxed">{topic.longDescription}</p>
+            <div className="flex items-center gap-4 mt-4">
+              <Badge variant="status" size="sm">{hasArticles ? `${topic.articles.length} articles` : 'Coming soon'}</Badge>
             </div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </div>
 
       <Section variant="alternate" padding="lg">
         <Container>
@@ -163,7 +151,7 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
                       <span>·</span>
                       <span>{article.date}</span>
                     </div>
-                    <h2 className="font-heading text-heading-lg text-lifespa-forest group-hover:text-lifespa-forest-light transition-colors mb-3">
+                    <h2 className="font-heading text-heading-lg text-lifespa-forest group-hover:text-[#7A2864] transition-colors mb-3">
                       {article.title}
                     </h2>
                     <p className="text-lifespa-charcoal-light text-body-sm mb-4">{article.excerpt}</p>

@@ -13,7 +13,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
     const variants = {
       default: 'bg-lifespa-cream',
       alternate: 'bg-white',
-      accent: 'bg-lifespa-forest text-white',
+      accent: 'bg-[#650e50] text-white',
       hero: 'bg-lifespa-cream',
     }
 
