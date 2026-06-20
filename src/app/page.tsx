@@ -26,7 +26,7 @@ export default function HomePage() {
       <Section variant="default" padding="md">
         <Container size="lg">
           <Link
-            href={`/docs/topics/${featuredArticle.topicSlug}/${featuredArticle.slug}`}
+            href={`/topics/${featuredArticle.topicSlug}/${featuredArticle.slug}`}
             className="group flex flex-wrap -mx-3"
           >
             <div className="w-full md:w-3/5 px-3">
@@ -56,7 +56,7 @@ export default function HomePage() {
           <div className="flex flex-wrap -mx-3">
             {topics.map((topic) => (
               <div key={topic.slug} className="w-1/2 md:w-1/4 px-3 mb-4">
-                <Link href={`/docs/topics/${topic.slug}/`} className="group block">
+                <Link href={`/topics/${topic.slug}/`} className="group block">
                   <figure className="mb-2">
                     <img src={topic.image} alt={topic.name} className="w-full" />
                   </figure>
@@ -66,7 +66,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/docs/topics/" className="text-sm text-[#1e73be] hover:text-[#000000]">View All Topics &raquo;</Link>
+            <Link href="/topics/" className="text-sm text-[#1e73be] hover:text-[#000000]">View All Topics &raquo;</Link>
           </div>
         </Container>
       </Section>

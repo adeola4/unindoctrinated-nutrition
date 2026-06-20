@@ -19,6 +19,32 @@
   --font-sans: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
   --font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-heading: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-body: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --text-display-sm: 1.875rem;
+  --text-display-md: 2.25rem;
+  --text-heading-xl: 1.5rem;
+  --text-heading-lg: 1.25rem;
+  --text-heading-md: 1.125rem;
+  --text-body-lg: 1.125rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --color-lifespa-forest: #222222;
+  --color-lifespa-forest-light: #444444;
+  --color-lifespa-charcoal: #222222;
+  --color-lifespa-charcoal-light: #575760;
+  --color-lifespa-stone: #b2b2be;
+  --color-lifespa-sage: #b5dfe1;
+  --color-lifespa-link: #1e73be;
+  --color-lifespa-warm: #f0f0f0;
+  --color-lifespa-warm-light: #f7f8f9;
+  --color-lifespa-warm-dark: #d0d0d0;
+  --color-lifespa-border: #b2b2be;
+  --color-lifespa-cream: #f7f8f9;
+  --color-lifespa-accent: #b5dfe1;
 }
 
 * {

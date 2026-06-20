@@ -49,7 +49,7 @@ export default function TopicsPage() {
           <div key={rowIdx} className="flex flex-wrap -mx-3" style={{ gap: '0' }}>
             {categories.slice(rowIdx * 5, rowIdx * 5 + 5).map((cat) => (
               <div key={cat.slug} className="w-1/5 px-3 mb-4">
-                <Link href={`/docs/topics/${cat.slug}/`} className="group block">
+                <Link href={`/topics/${cat.slug}/`} className="group block">
                   <figure className="mb-2">
                     <img
                       src={cat.image}
@@ -97,14 +97,14 @@ export default function TopicsPage() {
       <div className="mt-12 pt-8 border-t border-[#b2b2be]/30">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-normal text-[#222222]">Recent Articles</h3>
-          <a href="/docs/articles/" className="text-sm text-[#1e73be] hover:text-[#000000]">View All &raquo;</a>
+          <a href="/articles/" className="text-sm text-[#1e73be] hover:text-[#000000]">View All &raquo;</a>
         </div>
         <div className="border-t border-[#222222] w-12 mb-6"></div>
 
         {/* Featured article */}
         <div className="flex flex-wrap -mx-3 mb-8">
           <div className="w-full px-3">
-            <Link href="/docs/topics/gut-health/butyrate-metabolic-health" className="group flex gap-6">
+            <Link href="/topics/gut-health/butyrate-metabolic-health" className="group flex gap-6">
               <div className="w-[551px] flex-shrink-0">
                 <img
                   src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=551&h=361&fit=crop"
@@ -119,7 +119,7 @@ export default function TopicsPage() {
                 <p className="text-xs text-[#575760] mb-1">June 15, 2024 | <a href="#" className="text-[#1e73be] hover:text-[#000000]">Leave a comment</a></p>
                 <p className="text-sm text-[#575760]">How this short-chain fatty acid produced by gut bacteria influences everything from insulin sensitivity to brain function and immune regulation.</p>
                 <p className="text-xs text-[#1e73be] mt-2">
-                  <a href="/docs/topics/gut-health/" className="hover:text-[#000000]">Gut Health</a>, <a href="/docs/topics/metabolic-health/" className="hover:text-[#000000]">Metabolic Health</a>
+                  <a href="/topics/gut-health/" className="hover:text-[#000000]">Gut Health</a>, <a href="/topics/metabolic-health/" className="hover:text-[#000000]">Metabolic Health</a>
                 </p>
               </div>
             </Link>

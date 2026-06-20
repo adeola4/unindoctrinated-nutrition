@@ -81,7 +81,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
     <>
       <Section variant="default" padding="md">
         <Container size="md">
-          <Link href={`/docs/topics/${params.topic}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
+          <Link href={`/topics/${params.topic}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to {article.topic}
           </Link>
@@ -139,7 +139,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <span className="text-lifespa-charcoal text-body-sm font-medium">Share this article:</span>
-                    <ShareButtons url={`/docs/topics/${params.topic}/${params.slug}/`} title={article.title} />
+                    <ShareButtons url={`/topics/${params.topic}/${params.slug}/`} title={article.title} />
                   </div>
                   <span className="text-lifespa-stone text-caption">Last updated {article.updatedAt ? formatDate(article.updatedAt) : formatDate(article.publishedAt)}</span>
                 </div>

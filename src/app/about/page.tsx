@@ -66,7 +66,7 @@ export default function AboutPage() {
 
           <div className="text-center mt-16">
             <Button variant="primary" size="lg" asChild>
-              <Link href="/docs/newsletter/">
+              <Link href="/newsletter/">
                 <Mail className="h-5 w-5 mr-2" aria-hidden="true" />
                 Subscribe to the Newsletter
               </Link>

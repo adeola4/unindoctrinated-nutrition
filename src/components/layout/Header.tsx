@@ -10,15 +10,15 @@ const topBarLinks = [
   { name: 'Consultations', href: '#' },
   { name: 'eBooks', href: '#' },
   { name: 'Podcast', href: '#' },
-  { name: 'Newsletter', href: '/docs/newsletter/' },
+  { name: 'Newsletter', href: '/newsletter/' },
   { name: 'Shop', href: '#', icon: ShoppingCart },
 ]
 
 const navLinks = [
   { name: 'Ayurvedic Store', href: '#' },
-  { name: 'Health Topics', href: '/docs/topics/' },
-  { name: 'About', href: '/docs/about/' },
-  { name: 'Contact', href: '/docs/contact/' },
+  { name: 'Health Topics', href: '/topics/' },
+  { name: 'About', href: '/about/' },
+  { name: 'Contact', href: '/contact/' },
 ]
 
 export function Header() {
@@ -48,7 +48,7 @@ export function Header() {
         <div className="max-w-7xl">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link href="/docs/" className="flex-shrink-0" aria-label="Home">
+            <Link href="/" className="flex-shrink-0" aria-label="Home">
               <div className="max-w-[260px]">
                 <span className="text-xl font-semibold text-[#222222]">Unindoctrinated</span>
                 <span className="block text-xs text-[#575760]">Nutrition Science</span>

@@ -119,7 +119,7 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
       {/* Topic header */}
       <div className="bg-[#f7f8f9] border-b border-[#b2b2be]/30">
         <div className="max-w-7xl py-8">
-          <Link href="/docs/topics/" className="inline-flex items-center gap-1 text-xs text-[#1e73be] hover:text-[#000000] mb-4">
+          <Link href="/topics/" className="inline-flex items-center gap-1 text-xs text-[#1e73be] hover:text-[#000000] mb-4">
             <ArrowLeft className="h-3 w-3" aria-hidden="true" />
             All Health Topics
           </Link>
@@ -137,7 +137,7 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
             <div className="flex flex-wrap -mx-3">
               {topic.articles.map((article) => (
                 <div key={article.slug} className="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                  <Link href={`/docs/topics/${params.topic}/${article.slug}/`}>
+                  <Link href={`/topics/${params.topic}/${article.slug}/`}>
                     <Card variant="article" padding="md" className="h-full group">
                       <div className="flex items-center gap-3 text-xs text-[#575760] mb-3">
                         <span className="flex items-center gap-1">
@@ -169,7 +169,7 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
                 Research articles on {topic.name} are being prepared. Subscribe to be notified when new content drops.
               </p>
               <Button variant="primary" size="lg" asChild>
-                <Link href="/docs/newsletter/">Get Notified</Link>
+                <Link href="/newsletter/">Get Notified</Link>
               </Button>
             </div>
           )}

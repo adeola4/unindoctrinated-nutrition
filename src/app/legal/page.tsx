@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 }
 
 const legalPages = [
-  { name: 'Medical Disclaimer', desc: 'Important medical information disclaimer', href: '/docs/legal/disclaimer/' },
-  { name: 'Affiliate Disclosure', desc: 'Commission disclosure for product links', href: '/docs/legal/affiliate/' },
-  { name: 'Privacy Policy', desc: 'How your data is handled', href: '/docs/legal/privacy/' },
-  { name: 'Terms of Service', desc: 'Terms governing site use', href: '/docs/legal/terms/' },
+  { name: 'Medical Disclaimer', desc: 'Important medical information disclaimer', href: '/legal/disclaimer/' },
+  { name: 'Affiliate Disclosure', desc: 'Commission disclosure for product links', href: '/legal/affiliate/' },
+  { name: 'Privacy Policy', desc: 'How your data is handled', href: '/legal/privacy/' },
+  { name: 'Terms of Service', desc: 'Terms governing site use', href: '/legal/terms/' },
 ]
 
 export default function LegalPage() {

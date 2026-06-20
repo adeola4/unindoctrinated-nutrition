@@ -13,7 +13,7 @@ export default function DisclaimerPage() {
         <Card variant="outlined" padding="lg" className="border-lifespa-warm-dark bg-lifespa-warm">
           <div className="prose max-w-none text-lifespa-charcoal text-body-lg leading-relaxed space-y-4">
             <p><strong>Last updated:</strong> January 2024</p>
-            <p>The content on Unindoctrinated Nutrition Science (vibecodr.space/docs/) is for informational and educational purposes only. It is not intended as medical advice, diagnosis, or treatment.</p>
+            <p>The content on Unindoctrinated Nutrition Science (vibecodr.space/) is for informational and educational purposes only. It is not intended as medical advice, diagnosis, or treatment.</p>
             <p>Always consult with a qualified healthcare professional before:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Making changes to your diet or exercise routine</li>

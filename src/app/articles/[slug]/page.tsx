@@ -52,7 +52,7 @@ export default function ArticleAlternatePage({ params }: { params: { slug: strin
     <>
       <Section variant="default" padding="md">
         <Container size="md">
-          <Link href={`/docs/topics/${article.topic}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
+          <Link href={`/topics/${article.topic}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to articles
           </Link>
@@ -88,7 +88,7 @@ export default function ArticleAlternatePage({ params }: { params: { slug: strin
               <div className="mt-12 pt-8 border-t border-lifespa-border">
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-lifespa-charcoal text-body-sm font-medium">Share:</span>
-                  <ShareButtons url={`/docs/articles/${params.slug}/`} title={article.title} />
+                  <ShareButtons url={`/articles/${params.slug}/`} title={article.title} />
                 </div>
               </div>
             </div>

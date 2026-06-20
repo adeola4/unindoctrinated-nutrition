@@ -1,8 +1,6 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  basePath: '/docs',
-  assetPrefix: '/docs/',
   output: 'standalone',
   images: {
     remotePatterns: [
@@ -10,16 +8,12 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
     ],
   },
   async rewrites() {
     return [
       {
-        source: '/docs/studio/:path*',
+        source: '/studio/:path*',
         destination: 'https://unindoctrinated.sanity.studio/:path*',
       },
     ]

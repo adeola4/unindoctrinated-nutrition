@@ -1,24 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
-})
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains',
-})
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vibecodr.space'),
@@ -53,12 +36,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
-      <body className="bg-lifespa-cream text-lifespa-charcoal font-body antialiased min-h-screen flex flex-col">
+    <html lang="en">
+      <body className="bg-[#f7f8f9] text-[#222222] antialiased min-h-screen flex flex-col">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        {children}
+        <Header />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

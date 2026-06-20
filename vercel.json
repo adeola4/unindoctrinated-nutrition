@@ -8,7 +8,5 @@
     "silent": true,
     "autoJobCancelation": true
   },
-  "redirects": [
-    { "source": "/", "destination": "/docs", "permanent": true }
-  ]
+  "redirects": []
 }
