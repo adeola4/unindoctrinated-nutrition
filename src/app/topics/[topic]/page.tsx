@@ -99,8 +99,9 @@ export function generateStaticParams() {
   return Object.keys(topicsData).map((topic) => ({ topic }))
 }
 
-export function generateMetadata({ params }: { params: { topic: string } }): Metadata {
-  const topic = topicsData[params.topic as keyof typeof topicsData]
+export async function generateMetadata(props: { params: Promise<{ topic: string }> }): Promise<Metadata> {
+  const { topic: topicSlug } = await props.params
+  const topic = topicsData[topicSlug as keyof typeof topicsData]
   if (!topic) return { title: 'Topic Not Found' }
   return {
     title: `${topic.name} | Unindoctrinated Nutrition Science`,
@@ -108,8 +109,9 @@ export function generateMetadata({ params }: { params: { topic: string } }): Met
   }
 }
 
-export default function TopicPage({ params }: { params: { topic: string } }) {
-  const topic = topicsData[params.topic as keyof typeof topicsData]
+export default async function TopicPage(props: { params: Promise<{ topic: string }> }) {
+  const { topic: topicSlug } = await props.params
+  const topic = topicsData[topicSlug as keyof typeof topicsData]
   if (!topic) notFound()
 
   const hasArticles = topic.articles.length > 0
@@ -137,7 +139,7 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
             <div className="flex flex-wrap -mx-3">
               {topic.articles.map((article) => (
                 <div key={article.slug} className="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                  <Link href={`/topics/${params.topic}/${article.slug}/`}>
+                  <Link href={`/topics/${topicSlug}/${article.slug}/`}>
                     <Card variant="article" padding="md" className="h-full group">
                       <div className="flex items-center gap-3 text-xs text-[#575760] mb-3">
                         <span className="flex items-center gap-1">

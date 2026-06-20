@@ -13,13 +13,6 @@ import { TableOfContents } from '@/components/article/TableOfContents'
 import { formatDate } from '@/lib/utils'
 import { PortableTextRenderer } from '@/components/article/PortableTextRenderer'
 
-interface ArticlePageProps {
-  params: {
-    topic: string
-    slug: string
-  }
-}
-
 // Placeholder article data structure
 const placeholderArticle = {
   title: 'The Role of Butyrate in Metabolic Health',
@@ -50,7 +43,8 @@ const placeholderArticle = {
   showMedicalDisclaimer: true,
 }
 
-export function generateMetadata({ params }: ArticlePageProps): Metadata {
+export async function generateMetadata(props: { params: Promise<{ topic: string; slug: string }> }): Promise<Metadata> {
+  const { topic: topicSlug, slug } = await props.params
   const article = placeholderArticle
   return {
     title: article.title,
@@ -66,7 +60,8 @@ export function generateMetadata({ params }: ArticlePageProps): Metadata {
   }
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage(props: { params: Promise<{ topic: string; slug: string }> }) {
+  const { topic: topicSlug, slug } = await props.params
   const article = placeholderArticle
 
   const tableOfContents = article.content
@@ -81,7 +76,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
     <>
       <Section variant="default" padding="md">
         <Container size="md">
-          <Link href={`/topics/${params.topic}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
+          <Link href={`/topics/${topicSlug}/`} className="inline-flex items-center gap-2 text-lifespa-stone hover:text-lifespa-forest text-body-sm mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to {article.topic}
           </Link>
@@ -139,7 +134,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <span className="text-lifespa-charcoal text-body-sm font-medium">Share this article:</span>
-                    <ShareButtons url={`/topics/${params.topic}/${params.slug}/`} title={article.title} />
+                    <ShareButtons url={`/topics/${topicSlug}/${slug}/`} title={article.title} />
                   </div>
                   <span className="text-lifespa-stone text-caption">Last updated {article.updatedAt ? formatDate(article.updatedAt) : formatDate(article.publishedAt)}</span>
                 </div>

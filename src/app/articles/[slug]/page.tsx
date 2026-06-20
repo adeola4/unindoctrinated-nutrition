@@ -34,14 +34,16 @@ export function generateStaticParams() {
   return Object.keys(placeholders).map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const article = placeholders[params.slug]
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await props.params
+  const article = placeholders[slug]
   if (!article) return { title: 'Article Not Found' }
   return { title: article.title, description: article.excerpt }
 }
 
-export default function ArticleAlternatePage({ params }: { params: { slug: string } }) {
-  const article = placeholders[params.slug]
+export default async function ArticleAlternatePage(props: { params: Promise<{ slug: string }> }) {
+  const { slug } = await props.params
+  const article = placeholders[slug]
   if (!article) notFound()
 
   const tocItems = article.content
@@ -88,7 +90,7 @@ export default function ArticleAlternatePage({ params }: { params: { slug: strin
               <div className="mt-12 pt-8 border-t border-lifespa-border">
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-lifespa-charcoal text-body-sm font-medium">Share:</span>
-                  <ShareButtons url={`/articles/${params.slug}/`} title={article.title} />
+                  <ShareButtons url={`/articles/${slug}/`} title={article.title} />
                 </div>
               </div>
             </div>

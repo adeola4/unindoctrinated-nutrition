@@ -5,6 +5,7 @@ import { Container } from '@/components/layout/Container'
 
 export const metadata: Metadata = { title: 'Series' }
 
-export default function SeriesSlugPage({ params }: { params: { slug: string } }) {
+export default async function SeriesSlugPage(props: { params: Promise<{ slug: string }> }) {
+  await props.params
   notFound()
 }
