@@ -22,7 +22,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="block text-sm font-medium text-lifespa-charcoal mb-1.5">
+          <label htmlFor={inputId} className="block text-sm font-medium text-[#222222] mb-1.5">
             {label}
           </label>
         )}
@@ -30,12 +30,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full px-4 py-2.5 rounded-lg border bg-white text-lifespa-charcoal placeholder-lifespa-stone-light',
-            'border-lifespa-border hover:border-lifespa-stone',
-            'focus:outline-none focus:ring-2 focus:ring-lifespa-sage focus:border-transparent',
-            'disabled:bg-lifespa-warm-light disabled:cursor-not-allowed',
+            'w-full px-4 py-2.5 rounded border bg-white text-[#222222] placeholder-[#cccccc]',
+            'border-[#b2b2be]/30 hover:border-[#b2b2be]',
+            'focus:outline-none focus:ring-2 focus:ring-[#b5dfe1] focus:border-transparent',
+            'disabled:bg-[#f0f0f0] disabled:cursor-not-allowed',
             'transition-colors duration-200',
-            error && 'border-lifespa-terracotta focus:ring-lifespa-terracotta',
+            error && 'border-[#b2b2be] focus:ring-[#b2b2be]',
             className
           )}
           aria-invalid={error ? 'true' : 'false'}
@@ -43,12 +43,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-lifespa-terracotta" role="alert">
+          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-[#575760]" role="alert">
             {error}
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-lifespa-stone">
+          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-[#575760]">
             {hint}
           </p>
         )}
@@ -66,7 +66,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="block text-sm font-medium text-lifespa-charcoal mb-1.5">
+          <label htmlFor={inputId} className="block text-sm font-medium text-[#222222] mb-1.5">
             {label}
           </label>
         )}
@@ -74,12 +74,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full px-4 py-2.5 rounded-lg border bg-white text-lifespa-charcoal placeholder-lifespa-stone-light resize-y min-h-[100px]',
-            'border-lifespa-border hover:border-lifespa-stone',
-            'focus:outline-none focus:ring-2 focus:ring-lifespa-sage focus:border-transparent',
-            'disabled:bg-lifespa-warm-light disabled:cursor-not-allowed',
+            'w-full px-4 py-2.5 rounded border bg-white text-[#222222] placeholder-[#cccccc] resize-y min-h-[100px]',
+            'border-[#b2b2be]/30 hover:border-[#b2b2be]',
+            'focus:outline-none focus:ring-2 focus:ring-[#b5dfe1] focus:border-transparent',
+            'disabled:bg-[#f0f0f0] disabled:cursor-not-allowed',
             'transition-colors duration-200',
-            error && 'border-lifespa-terracotta focus:ring-lifespa-terracotta',
+            error && 'border-[#b2b2be] focus:ring-[#b2b2be]',
             className
           )}
           aria-invalid={error ? 'true' : 'false'}
@@ -87,12 +87,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {...props}
         />
         {error && (
-          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-lifespa-terracotta" role="alert">
+          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-[#575760]" role="alert">
             {error}
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-lifespa-stone">
+          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-[#575760]">
             {hint}
           </p>
         )}

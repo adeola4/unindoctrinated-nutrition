@@ -17,9 +17,9 @@ export function NewsletterInline() {
   if (submitted) {
     return (
       <Card variant="elevated" padding="lg" className="text-center">
-        <CheckCircle className="h-12 w-12 mx-auto mb-4 text-lifespa-sage" aria-hidden="true" />
-        <h3 className="font-heading text-heading-xl text-lifespa-forest mb-2">You&apos;re subscribed!</h3>
-        <p className="text-lifespa-charcoal-light">Check your inbox to confirm your subscription.</p>
+        <CheckCircle className="h-12 w-12 mx-auto mb-4 text-[#b5dfe1]" aria-hidden="true" />
+        <h3 className="text-xl text-[#222222] mb-2">You&apos;re subscribed!</h3>
+        <p className="text-[#575760]">Check your inbox to confirm your subscription.</p>
       </Card>
     )
   }
@@ -28,8 +28,8 @@ export function NewsletterInline() {
     <Card variant="elevated" padding="lg">
       <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
         <div className="flex-1">
-          <h3 className="font-heading text-heading-xl text-lifespa-forest mb-2">Get the latest research</h3>
-          <p className="text-lifespa-charcoal-light text-body-sm">
+          <h3 className="text-xl text-[#222222] mb-2">Get the latest research</h3>
+          <p className="text-[#575760] text-sm">
             Evidence-based nutrition analysis delivered to your inbox. No fluff, no spam.
           </p>
         </div>

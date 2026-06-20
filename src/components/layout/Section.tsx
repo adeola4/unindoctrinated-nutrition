@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { Container } from './Container'
 
 export interface SectionProps extends HTMLAttributes<HTMLElement> {
-  variant?: 'default' | 'alternate' | 'accent' | 'hero'
+  variant?: 'default' | 'alternate' | 'accent'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
   containerSize?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
 }
@@ -11,18 +11,17 @@ export interface SectionProps extends HTMLAttributes<HTMLElement> {
 export const Section = forwardRef<HTMLElement, SectionProps>(
   ({ className, variant = 'default', padding = 'lg', containerSize = 'lg', children, ...props }, ref) => {
     const variants = {
-      default: 'bg-lifespa-cream',
-      alternate: 'bg-white',
-      accent: 'bg-[#650e50] text-white',
-      hero: 'bg-lifespa-cream',
+      default: 'bg-white',
+      alternate: 'bg-[#f7f8f9]',
+      accent: 'bg-[#222222] text-white',
     }
 
     const paddings = {
       none: 'py-0',
-      sm: 'py-8 sm:py-12',
-      md: 'py-12 sm:py-16 lg:py-20',
-      lg: 'py-16 sm:py-20 lg:py-24',
-      xl: 'py-20 sm:py-24 lg:py-32',
+      sm: 'py-8',
+      md: 'py-12',
+      lg: 'py-16',
+      xl: 'py-20',
     }
 
     return (

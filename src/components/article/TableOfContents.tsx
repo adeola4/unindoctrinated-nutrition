@@ -42,18 +42,18 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
   return (
     <nav aria-label="Table of contents">
-      <h2 className="font-heading text-heading-md text-lifespa-forest mb-4">In This Article</h2>
-      <ul className="space-y-2 border-l-2 border-lifespa-border">
+      <h2 className="text-sm font-semibold text-[#222222] mb-4">In This Article</h2>
+      <ul className="space-y-2 border-l-2 border-[#b2b2be]/30">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
               className={cn(
-                'block py-1.5 text-body-sm transition-colors border-l-2 -ml-[2px]',
+                'block py-1.5 text-sm transition-colors border-l-2 -ml-[2px]',
                 item.level === 3 ? 'pl-6' : 'pl-4',
                 activeId === item.id
-                  ? 'border-lifespa-forest text-lifespa-forest font-medium'
-                  : 'border-transparent text-lifespa-stone hover:text-lifespa-forest'
+                  ? 'border-[#222222] text-[#222222] font-medium'
+                  : 'border-transparent text-[#575760] hover:text-[#222222]'
               )}
             >
               {item.text}

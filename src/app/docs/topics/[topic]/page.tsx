@@ -19,7 +19,7 @@ const topicsData: Record<string, { name: string; description: string; longDescri
   'metabolic-health': {
     name: 'Metabolic Health',
     description: 'Blood sugar regulation, insulin sensitivity, metabolic syndrome, and energy metabolism.',
-    longDescription: 'Metabolic health is the foundation of chronic disease prevention. This topic covers insulin signaling, glucose metabolism, and metabolic optimization.',
+    longDescription: 'Metabolic health is the foundation of chronic disease prevention.',
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop',
     articles: [],
   },
@@ -40,35 +40,35 @@ const topicsData: Record<string, { name: string; description: string; longDescri
   'sleep-circadian': {
     name: 'Sleep & Circadian Biology',
     description: 'Sleep architecture, circadian rhythm science, light exposure, and chronobiology.',
-    longDescription: 'Sleep and circadian rhythms are fundamental to health. This topic covers the science of sleep architecture and circadian biology.',
+    longDescription: 'Sleep and circadian rhythms are fundamental to health.',
     image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&h=400&fit=crop',
     articles: [],
   },
   'hormones': {
     name: 'Hormones',
     description: 'Endocrine function, thyroid health, sex hormones, adrenal function, and optimization.',
-    longDescription: 'Hormones regulate virtually every physiological process. This section examines thyroid function, sex hormones, and adrenal health.',
+    longDescription: 'Hormones regulate virtually every physiological process.',
     image: 'https://images.unsplash.com/photo-1579165466741-7f35e4755661?w=1200&h=400&fit=crop',
     articles: [],
   },
   'longevity': {
     name: 'Longevity & Aging',
     description: 'The biology of aging, healthspan extension, telomere biology, autophagy, and senescence.',
-    longDescription: 'Aging biology is one of the most exciting areas of modern science. This topic covers the hallmarks of aging and longevity pathways.',
+    longDescription: 'Aging biology is one of the most exciting areas of modern science.',
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop',
     articles: [],
   },
   'exercise-recovery': {
     name: 'Exercise & Recovery',
     description: 'Training physiology, muscle protein synthesis, recovery optimization, and performance science.',
-    longDescription: 'Exercise is a powerful stimulus for health adaptation. This section covers training physiology and recovery science.',
+    longDescription: 'Exercise is a powerful stimulus for health adaptation.',
     image: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?w=1200&h=400&fit=crop',
     articles: [],
   },
   'brain-health': {
     name: 'Brain Health',
     description: 'Neurobiology, cognitive function, neurodegeneration prevention, and brain energetics.',
-    longDescription: 'The brain is the most energy-demanding organ. This topic explores neurobiology, cognitive function, and neurodegeneration prevention.',
+    longDescription: 'The brain is the most energy-demanding organ.',
     image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=400&fit=crop',
     articles: [],
   },
@@ -103,7 +103,7 @@ export function generateMetadata({ params }: { params: { topic: string } }): Met
   const topic = topicsData[params.topic as keyof typeof topicsData]
   if (!topic) return { title: 'Topic Not Found' }
   return {
-    title: topic.name,
+    title: `${topic.name} | Unindoctrinated Nutrition Science`,
     description: topic.description,
   }
 }
@@ -116,22 +116,17 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
 
   return (
     <>
-      {/* Topic Hero */}
-      <div className="relative overflow-hidden bg-[#650e50]">
-        <div className="absolute inset-0 opacity-20">
-          <img src={topic.image} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <Link href="/docs/topics/" className="inline-flex items-center gap-2 text-purple-200 hover:text-orange-300 text-body-sm mb-6 transition-colors">
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+      {/* Topic header */}
+      <div className="bg-[#f7f8f9] border-b border-[#b2b2be]/30">
+        <div className="max-w-7xl py-8">
+          <Link href="/docs/topics/" className="inline-flex items-center gap-1 text-xs text-[#1e73be] hover:text-[#000000] mb-4">
+            <ArrowLeft className="h-3 w-3" aria-hidden="true" />
             All Health Topics
           </Link>
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-display-md text-white mb-4">{topic.name}</h1>
-            <p className="text-purple-200 text-body-lg leading-relaxed">{topic.longDescription}</p>
-            <div className="flex items-center gap-4 mt-4">
-              <Badge variant="status" size="sm">{hasArticles ? `${topic.articles.length} articles` : 'Coming soon'}</Badge>
-            </div>
+          <h1 className="text-2xl text-[#222222] mb-3">{topic.name}</h1>
+          <p className="text-sm text-[#575760] max-w-3xl">{topic.longDescription}</p>
+          <div className="mt-3">
+            <Badge variant="status" size="sm">{hasArticles ? `${topic.articles.length} articles` : 'Coming soon'}</Badge>
           </div>
         </div>
       </div>
@@ -139,36 +134,38 @@ export default function TopicPage({ params }: { params: { topic: string } }) {
       <Section variant="alternate" padding="lg">
         <Container>
           {hasArticles ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap -mx-3">
               {topic.articles.map((article) => (
-                <Link key={article.slug} href={`/docs/topics/${params.topic}/${article.slug}/`}>
-                  <Card variant="article" padding="md" className="h-full group">
-                    <div className="flex items-center gap-3 text-lifespa-stone text-caption mb-3">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" aria-hidden="true" />
-                        {article.readingTime} min read
-                      </span>
-                      <span>·</span>
-                      <span>{article.date}</span>
-                    </div>
-                    <h2 className="font-heading text-heading-lg text-lifespa-forest group-hover:text-[#7A2864] transition-colors mb-3">
-                      {article.title}
-                    </h2>
-                    <p className="text-lifespa-charcoal-light text-body-sm mb-4">{article.excerpt}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {article.tags.map((tag) => (
-                        <Badge key={tag} variant="tag" size="sm">{tag}</Badge>
-                      ))}
-                    </div>
-                  </Card>
-                </Link>
+                <div key={article.slug} className="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+                  <Link href={`/docs/topics/${params.topic}/${article.slug}/`}>
+                    <Card variant="article" padding="md" className="h-full group">
+                      <div className="flex items-center gap-3 text-xs text-[#575760] mb-3">
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" aria-hidden="true" />
+                          {article.readingTime} min read
+                        </span>
+                        <span>·</span>
+                        <span>{article.date}</span>
+                      </div>
+                      <h2 className="text-lg text-[#1e73be] group-hover:text-[#000000] transition-colors mb-3">
+                        {article.title}
+                      </h2>
+                      <p className="text-sm text-[#575760] mb-4">{article.excerpt}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {article.tags.map((tag) => (
+                          <Badge key={tag} variant="tag" size="sm">{tag}</Badge>
+                        ))}
+                      </div>
+                    </Card>
+                  </Link>
+                </div>
               ))}
             </div>
           ) : (
             <div className="text-center py-20">
-              <BookOpen className="h-16 w-16 mx-auto mb-6 text-lifespa-stone-light" aria-hidden="true" />
-              <h2 className="font-heading text-display-sm text-lifespa-forest mb-4">No articles yet</h2>
-              <p className="text-lifespa-charcoal-light text-body-lg mb-8 max-w-md mx-auto">
+              <BookOpen className="h-12 w-12 mx-auto mb-4 text-[#b2b2be]" aria-hidden="true" />
+              <h2 className="text-xl text-[#222222] mb-3">No articles yet</h2>
+              <p className="text-sm text-[#575760] mb-6 max-w-md mx-auto">
                 Research articles on {topic.name} are being prepared. Subscribe to be notified when new content drops.
               </p>
               <Button variant="primary" size="lg" asChild>

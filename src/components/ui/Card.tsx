@@ -9,10 +9,10 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', padding = 'md', children, ...props }, ref) => {
     const variants = {
-      default: 'bg-white border border-lifespa-border',
-      elevated: 'bg-white shadow-lg border-none',
-      outlined: 'bg-transparent border-2 border-lifespa-border',
-      article: 'bg-white border border-lifespa-border hover:shadow-md transition-shadow duration-200',
+      default: 'bg-white border border-[#b2b2be]/30',
+      elevated: 'bg-white shadow',
+      outlined: 'bg-transparent border-2 border-[#b2b2be]/30',
+      article: 'bg-white border border-[#b2b2be]/30',
     }
 
     const paddings = {
@@ -25,7 +25,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={cn('rounded-xl', variants[variant], paddings[padding], className)}
+        className={cn('rounded', variants[variant], paddings[padding], className)}
         {...props}
       >
         {children}
@@ -45,14 +45,14 @@ CardHeader.displayName = 'CardHeader'
 
 export const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
-    <h3 ref={ref} className={cn('font-heading text-lifespa-forest text-xl font-medium', className)} {...props} />
+    <h3 ref={ref} className={cn('text-[#222222] text-lg font-medium', className)} {...props} />
   )
 )
 CardTitle.displayName = 'CardTitle'
 
 export const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
   ({ className, ...props }, ref) => (
-    <p ref={ref} className={cn('text-lifespa-stone text-body-sm mt-1', className)} {...props} />
+    <p ref={ref} className={cn('text-[#575760] text-sm mt-1', className)} {...props} />
   )
 )
 CardDescription.displayName = 'CardDescription'
@@ -66,7 +66,7 @@ CardContent.displayName = 'CardContent'
 
 export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('mt-4 pt-4 border-t border-lifespa-border flex items-center gap-2', className)} {...props} />
+    <div ref={ref} className={cn('mt-4 pt-4 border-t border-[#b2b2be]/30 flex items-center gap-2', className)} {...props} />
   )
 )
 CardFooter.displayName = 'CardFooter'

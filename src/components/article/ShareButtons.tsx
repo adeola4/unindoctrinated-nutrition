@@ -1,6 +1,6 @@
 'use client'
 
-import { Link2, Check, Globe } from 'lucide-react'
+import { Link2, Check } from 'lucide-react'
 import { useState } from 'react'
 
 interface ShareButtonsProps {
@@ -20,32 +20,41 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const shareLinks = [
-    { name: 'X/Twitter', href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, icon: Globe, label: 'Share on X/Twitter' },
-    { name: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, icon: Globe, label: 'Share on Facebook' },
-    { name: 'LinkedIn', href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`, icon: Globe, label: 'Share on LinkedIn' },
-  ]
-
   return (
     <div className="flex items-center gap-2">
-      {shareLinks.map((link) => (
-        <a
-          key={link.name}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={link.label}
-          className="p-2 rounded-lg text-lifespa-stone hover:text-lifespa-forest hover:bg-lifespa-warm transition-colors"
-        >
-          <link.icon className="h-4 w-4" aria-hidden="true" />
-        </a>
-      ))}
+      <a
+        href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on X/Twitter"
+        className="p-2 text-[#575760] hover:text-[#222222] transition-colors text-xs"
+      >
+        X
+      </a>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Facebook"
+        className="p-2 text-[#575760] hover:text-[#222222] transition-colors text-xs"
+      >
+        FB
+      </a>
+      <a
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+        className="p-2 text-[#575760] hover:text-[#222222] transition-colors text-xs"
+      >
+        LI
+      </a>
       <button
         onClick={handleCopyLink}
         aria-label={copied ? 'Link copied' : 'Copy link'}
-        className="p-2 rounded-lg text-lifespa-stone hover:text-lifespa-forest hover:bg-lifespa-warm transition-colors"
+        className="p-2 text-[#575760] hover:text-[#222222] transition-colors"
       >
-        {copied ? <Check className="h-4 w-4 text-lifespa-sage" /> : <Link2 className="h-4 w-4" />}
+        {copied ? <Check className="h-4 w-4 text-[#b5dfe1]" /> : <Link2 className="h-4 w-4" />}
       </button>
     </div>
   )

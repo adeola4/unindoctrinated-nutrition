@@ -5,27 +5,25 @@ import { cn } from '@/lib/utils'
 import { Slot } from './Slot'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'terracotta'
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
   loading?: boolean
   asChild?: boolean
 }
 
-const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#650e50] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+const baseStyles = 'inline-flex items-center justify-center font-medium rounded transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e73be] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
 const variants: Record<string, string> = {
-  primary: 'bg-[#650e50] text-white hover:bg-[#7A2864] active:bg-[#4A0A3A] shadow-sm',
-  secondary: 'bg-[#B8A9C4] text-[#4A0A3A] hover:bg-[#D4C8DC] active:bg-[#8A7A9A]',
-  outline: 'border-2 border-[#650e50] text-[#650e50] hover:bg-[#650e50] hover:text-white active:bg-[#4A0A3A]',
-  ghost: 'text-[#650e50] hover:bg-purple-50 active:bg-purple-100',
-  terracotta: 'bg-[#ffa52c] text-white hover:bg-[#FFBE5C] active:bg-[#db6110] shadow-sm',
+  primary: 'bg-[#1e73be] text-white hover:bg-[#155a96] active:bg-[#0d3d6b]',
+  secondary: 'bg-[#b5dfe1] text-[#222222] hover:bg-[#8cbdc0] active:bg-[#6a9ea2]',
+  outline: 'border border-[#b2b2be] text-[#222222] hover:bg-[#f0f0f0]',
+  ghost: 'text-[#222222] hover:bg-[#f0f0f0]',
 }
 
 const sizes: Record<string, string> = {
-  sm: 'px-3 py-1.5 text-sm gap-1.5',
-  md: 'px-4 py-2 text-base gap-2',
-  lg: 'px-6 py-3 text-lg gap-2',
-  xl: 'px-8 py-4 text-xl gap-3',
+  sm: 'px-3 py-1.5 text-xs gap-1.5',
+  md: 'px-4 py-2 text-sm gap-2',
+  lg: 'px-5 py-2.5 text-sm gap-2',
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
