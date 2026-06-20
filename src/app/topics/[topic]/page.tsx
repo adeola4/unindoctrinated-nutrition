@@ -104,7 +104,7 @@ export async function generateMetadata(props: { params: Promise<{ topic: string 
   const topic = topicsData[topicSlug as keyof typeof topicsData]
   if (!topic) return { title: 'Topic Not Found' }
   return {
-    title: `${topic.name} | Unindoctrinated Nutrition Science`,
+    title: topic.name,
     description: topic.description,
   }
 }
