@@ -1,0 +1,28 @@
+{
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "github": {
+    "silent": true,
+    "autoJobCancelation": true
+  },
+  "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(favicon.svg|apple-touch-icon.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+}
